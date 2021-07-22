@@ -67,16 +67,18 @@ const Home = () => {
                         gap={10}
                     >
                         {
-                            productData.getProducts(4).map((item, index) => (
+                            productData.getProducts(0, 4).map((item, index) => (
                                 <ProductCard
                                     key={index}
-                                    img01={item.image01}
-                                    img02={item.image02}
+                                    id={item.id}
+                                    image01={item.image01}
+                                    image02={item.image02}
                                     title={item.title}
                                     price={item.price}
                                     slug={item.slug}
 
                                 />
+
                             ))
                         }
                     </Grid>
@@ -96,11 +98,12 @@ const Home = () => {
                         gap={10}
                     >
                         {
-                            productData.getProducts(8).map((item, index) => (
+                            productData.getProducts(4, 12).map((item, index) => (
                                 <ProductCard
                                     key={index}
-                                    img01={item.image01}
-                                    img02={item.image02}
+                                    id={item.id}
+                                    image01={item.image01}
+                                    image02={item.image02}
                                     title={item.title}
                                     price={item.price}
                                     slug={item.slug}
@@ -135,11 +138,12 @@ const Home = () => {
                         gap={10}
                     >
                         {
-                            productData.getProducts(12).map((item, index) => (
+                            productData.getProducts(0, 12).map((item, index) => (
                                 <ProductCard
                                     key={index}
-                                    img01={item.image01}
-                                    img02={item.image02}
+                                    id={item.id}
+                                    image01={item.image01}
+                                    image02={item.image02}
                                     title={item.title}
                                     price={item.price}
                                     slug={item.slug}

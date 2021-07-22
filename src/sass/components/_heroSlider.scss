@@ -16,7 +16,7 @@
 
     &__item {
         @include flex(center, space-between);
-
+        margin-top: 100px;
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
@@ -26,11 +26,6 @@
         @include tablet {
             flex-direction: column-reverse;
             padding-top: $header-tablet-height;
-        }
-
-        @include mobile {
-            padding-top: unset;
-            padding-bottom: 40px;
         }
 
         &.active {
@@ -153,8 +148,8 @@
                 top: 50%;
                 border-radius: 58% 42% 38% 62% / 42% 55% 45% 58%;
                 transform: translate(0, -50%);
-                transition: border-radius 13s ease;
-                animation: border 10s infinite;
+                transition: border-radius 10s ease;
+                animation: border 5s infinite;
 
                 @include tablet {
                     $size: 450px;
@@ -185,6 +180,16 @@
         right: 40%;
         transform: translateX(-50%);
 
+        @include mobile {
+            @include flex(center, center);
+            position: absolute;
+            margin-top: 20px;
+            width: 100%;
+            bottom: 0;
+            left: 50%;
+            z-index: 100;
+        }
+
         &__item ~ &__item {
             margin-left: 10px;
         }
@@ -207,12 +212,12 @@
 
 @keyframes border {
     0% {
-        border-radius: 58% 42% 38% 62% / 42% 55% 45% 58%;
+        border-radius: 73% 27% 83% 17% / 59% 60% 40% 41%;
     }
     50% {
-        border-radius: 31% 69% 59% 41% / 28% 24% 76% 72%;
+        border-radius: 40% 60% 17% 83% / 55% 60% 40% 45%;
     }
     100% {
-        border-radius: 58% 42% 38% 62% / 42% 55% 45% 58%;
+        border-radius: 73% 27% 83% 17% / 59% 60% 40% 41%;
     }
 }

@@ -6,7 +6,7 @@ Button.propTypes = {
     size: PropTypes.string,
     icon: PropTypes.string,
     animation: PropTypes.bool,
-    onclick: PropTypes.func
+    onClick: PropTypes.func
 
 };
 
@@ -21,7 +21,7 @@ function Button(props) {
     return (
         <button
             className={`btn ${bg} ${size} ${animation}`}
-            onclick={props.onclick ? () => props.onclick() : null}
+            onClick={props.onClick ? () => props.onClick() : null}
         >
             <span className="btn__txt">{props.children}</span>
             {

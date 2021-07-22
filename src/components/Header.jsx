@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useContext } from 'react'
 
 import { Link, useLocation } from 'react-router-dom'
 
 import logo from '../assets/images/Logo-2.png'
+
+import { AppContext } from './AppProvider'
 
 
 const mainNav = [
@@ -23,17 +25,21 @@ const mainNav = [
         path: "/contact"
     }
 ]
+
+
 const Header = () => {
     const { pathname } = useLocation()
+
+    const { listProductCart } = useContext(AppContext)
 
     const ActiveNav = mainNav.findIndex(item => item.path === pathname)
 
     const headerRef = useRef(null)
 
+
+
     useEffect(() => {
-        window.addEventListener("scroll", () => {
-
-
+        window.addEventListener('scroll', () => {
             if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
                 headerRef.current.classList.add('shrink')
             } else {
@@ -41,18 +47,19 @@ const Header = () => {
             }
         })
 
-
         return () => {
             window.removeEventListener('scroll')
         }
     }, [])
+
+
 
     const menuRef = useRef(null)
 
     const menutoggle = () => menuRef.current.classList.toggle('active')
 
     return (
-        <div className="header" ref={headerRef}>
+        <div className='header' ref={headerRef} >
             <div className="container">
                 <div className="header__logo">
                     <Link>
@@ -90,10 +97,16 @@ const Header = () => {
                             <i class='bx bx-search' ></i>
                         </div>
                         <div className="header__menu__item header__menu__right__item">
+                            <div className="group-shoppingcart">
+                                {
+                                    listProductCart.length > 0 ? <span className='count add-animation'>{listProductCart.length}</span> : ''
+                                }
 
-                            <Link to="/cart">
-                                <i class='bx bxl-shopify'></i>
-                            </Link>
+                                <Link to="/cart">
+                                    <i class='bx bxl-shopify'></i>
+                                </Link>
+                            </div>
+
                         </div>
                         <div className="header__menu__item header__menu__right__item">
                             <i class='bx bx-user' ></i>
@@ -104,5 +117,7 @@ const Header = () => {
         </div>
     )
 }
+
+
 
 export default Header

@@ -1,16 +1,40 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-
 import { Link } from 'react-router-dom'
 import Button from './Button'
 import ConvertToPrice from '../utils/ConverttoPrice'
+import { AppContext } from './AppProvider'
+
+
+
 const ProductCard = props => {
+
+    const { listProductCart, setListProductCart } = useContext(AppContext)
+
+
+
+    const handleClick = () => {
+
+        const exist = listProductCart.find((x) => x.id === props.id)
+
+        if (exist) {
+            setListProductCart(
+                listProductCart.map((x) => x.id === props.id ? { ...exist, qty: exist.qty + 1 } : x)
+            )
+
+        } else {
+            setListProductCart([...listProductCart, { ...props, qty: 1 }])
+        }
+
+
+    }
+
     return (
         <div className="product-card">
             <Link to={`/catelog/${props.slug}`}>
                 <div className="product-card__image">
-                    <img src={props.img01} alt="" />
-                    <img src={props.img02} alt="" />
+                    <img src={props.image01} alt="" />
+                    <img src={props.image02} alt="" />
                 </div>
                 <h3 className="product-card__name">{props.title}</h3>
                 <div className="product-card__price">
@@ -30,7 +54,7 @@ const ProductCard = props => {
                     size='sm'
                     icon='bx bx-cart'
                     animation={true}
-
+                    onClick={handleClick}
                 >
                     Chọn mua
                 </Button>
@@ -41,8 +65,9 @@ const ProductCard = props => {
 
 ProductCard.propTypes = {
 
-    img01: PropTypes.string.isRequired,
-    img02: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    image01: PropTypes.string.isRequired,
+    image02: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     slug: PropTypes.string.isRequired,
