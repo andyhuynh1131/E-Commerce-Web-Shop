@@ -1,36 +1,43 @@
-import React, { useState, useEffect } from 'react'
+
+import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import Header from './Header'
-import Footer from './Footer'
 import Routers from '../routes/Routes'
-import { AppProvider } from './AppProvider'
+import { AppProvider } from '../ConText/AppProvider'
+import Footer from './Footer'
+import Header from './Header'
+import AuthProvider from '../ConText/AuthProvider'
+
 
 
 const Layout = () => {
 
 
 
-
-
-
     return (
         <BrowserRouter>
-            <AppProvider>
-                <Route render={props => (
-                    <div>
-                        <Header {...props} />
-                        <div className="container">
+            <AuthProvider>
 
-                            <div className="main">
-                                <Routers />
+                <AppProvider>
+
+
+                    <Route render={props => (
+
+                        <div>
+                            <Header {...props} />
+                            <div className="container">
+
+                                <div className="main">
+
+                                    <Routers />
+                                </div>
+
                             </div>
-
+                            <Footer />
                         </div>
-                        <Footer />
-                    </div>
-                )} />
-            </AppProvider>
+                    )} />
+                </AppProvider>
 
+            </AuthProvider>
 
 
 

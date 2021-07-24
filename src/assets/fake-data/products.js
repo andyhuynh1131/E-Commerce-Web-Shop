@@ -40,148 +40,136 @@ const products = [
         id: 1,
         qty: 1,
         price: 189000,
-        image01: product_01_image_01,
-        image02: product_01_image_02,
+        images: [product_01_image_01, product_01_image_02, product_03_image_02],
         categorySlug: "ao-thun",
-        colors: ['white', 'red', 'orange'],
+        colors: ['blue', 'red', 'orange', 'purple'],
         slug: 'ao-thun-dinosaur-01',
-        size: ["s", 'm', 'l', 'xl']
+        size: ["S", 'M', 'L', 'XL']
     },
     {
         title: "Áo thun Dinosaur 02",
         id: 2,
         qty: 1,
         price: 189000,
-        image01: product_02_image_01,
-        image02: product_02_image_02,
+        images: [product_02_image_01, product_02_image_02],
         categorySlug: "ao-thun",
-        colors: ['white', 'red', 'orange'],
+        colors: ['blue', 'red', 'orange', 'purple'],
         slug: 'ao-thun-dinosaur-02',
-        size: ["s", 'm', 'l', 'xl']
+        size: ["S", 'M', 'L', 'XL']
     },
     {
         title: "Áo thun Dinosaur 03",
         id: 3,
         qty: 1,
         price: 189000,
-        image01: product_03_image_01,
-        image02: product_03_image_02,
+        images: [product_03_image_01, product_03_image_02],
         categorySlug: "ao-thun",
-        colors: ['white', 'red', 'orange'],
+        colors: ['blue', 'red', 'orange', 'purple'],
         slug: 'ao-thun-dinosaur-03',
-        size: ["s", 'm', 'l', 'xl']
+        size: ["S", 'M', 'L', 'XL']
     },
     {
         title: "Áo thun Dinosaur 04",
         id: 4,
         qty: 1,
         price: 189000,
-        image01: product_04_image_01,
-        image02: product_04_image_02,
+        images: [product_04_image_01, product_04_image_02],
         categorySlug: "ao-thun",
-        colors: ['white', 'red', 'orange'],
+        colors: ['blue', 'red', 'orange', 'purple'],
         slug: 'ao-thun-dinosaur-04',
-        size: ["s", 'm', 'l', 'xl']
+        size: ["S", 'M', 'L', 'XL']
     },
     {
         title: "Áo thun Dinosaur 05",
         id: 5,
         qty: 1,
         price: 189000,
-        image01: product_05_image_01,
-        image02: product_05_image_02,
+        images: [product_05_image_01, product_05_image_02],
         categorySlug: "ao-thun",
-        colors: ['white', 'red', 'orange'],
+        colors: ['blue', 'red', 'orange', 'purple'],
         slug: 'ao-thun-dinosaur-05',
-        size: ["s", 'm', 'l', 'xl']
+        size: ["S", 'M', 'L', 'XL']
     },
     {
         title: "Áo thun Dinosaur 06",
         id: 6,
         qty: 1,
         price: 189000,
-        image01: product_06_image_01,
-        image02: product_06_image_02,
+        images: [product_06_image_01, product_06_image_02],
         categorySlug: "ao-thun",
-        colors: ['white', 'red', 'orange'],
+        colors: ['blue', 'red', 'orange', 'purple'],
         slug: 'ao-thun-dinosaur-06',
-        size: ["s", 'm', 'l', 'xl']
+        size: ["S", 'M', 'L', 'XL']
     },
     {
         title: "Áo thun Dinosaur 07",
         id: 7,
         qty: 1,
         price: 189000,
-        image01: product_07_image_01,
-        image02: product_07_image_02,
+        images: [product_07_image_01, product_07_image_02],
         categorySlug: "ao-thun",
-        colors: ['white', 'red', 'orange'],
+        colors: ['blue', 'red', 'orange', 'purple'],
         slug: 'ao-thun-dinosaur-07',
-        size: ["s", 'm', 'l', 'xl']
+        size: ["S", 'M', 'L', 'XL']
     },
     {
         title: "Áo thun Dinosaur 08",
         id: 8,
         qty: 1,
         price: 189000,
-        image01: product_08_image_01,
-        image02: product_08_image_02,
+        images: [product_08_image_01, product_08_image_02],
         categorySlug: "ao-thun",
-        colors: ['white', 'red', 'orange'],
+        colors: ['blue', 'red', 'orange', 'purple'],
         slug: 'ao-thun-dinosaur-08',
-        size: ["s", 'm', 'l', 'xl']
+        size: ["S", 'M', 'L', 'XL']
     },
     {
         title: "Áo thun Dinosaur 09",
         id: 9,
         qty: 1,
         price: 189000,
-        image01: product_09_image_01,
-        image02: product_09_image_02,
+        images: [product_09_image_01, product_09_image_02],
         categorySlug: "ao-thun",
-        colors: ['white', 'red', 'orange'],
+        colors: ['blue', 'red', 'orange', 'purple'],
         slug: 'ao-thun-dinosaur-09',
-        size: ["s", 'm', 'l', 'xl']
+        size: ["S", 'M', 'L', 'XL']
     },
     {
         title: "Áo thun Dinosaur 10",
         id: 10,
         qty: 1,
         price: 189000,
-        image01: product_10_image_01,
-        image02: product_10_image_02,
+        images: [product_10_image_01, product_10_image_02],
         categorySlug: "ao-thun",
-        colors: ['white', 'red', 'orange'],
+        colors: ['blue', 'red', 'orange', 'purple'],
         slug: 'ao-thun-dinosaur-10',
-        size: ["s", 'm', 'l', 'xl']
+        size: ["S", 'M', 'L', 'XL']
     },
     {
         title: "Áo thun Dinosaur 11",
         id: 11,
         qty: 1,
         price: 189000,
-        image01: product_11_image_01,
-        image02: product_11_image_02,
+        images: [product_11_image_01, product_11_image_02],
         categorySlug: "ao-thun",
-        colors: ['white', 'red', 'orange'],
+        colors: ['blue', 'red', 'orange', 'purple'],
         slug: 'ao-thun-dinosaur-11',
-        size: ["s", 'm', 'l', 'xl']
+        size: ["S", 'M', 'L', 'XL']
     },
     {
         title: "Áo thun Dinosaur 12",
         id: 12,
         qty: 1,
         price: 189000,
-        image01: product_12_image_01,
-        image02: product_12_image_02,
+        images: [product_12_image_01, product_12_image_02],
         categorySlug: "ao-thun",
-        colors: ['white', 'red', 'orange'],
+        colors: ['blue', 'red', 'orange', 'purple'],
         slug: 'ao-thun-dinosaur-12',
-        size: ["s", 'm', 'l', 'xl']
+        size: ["S", 'M', 'L', 'XL']
     },
 ]
 
-const getAllProducts = () => products
+
 
 const GetProductById = id => {
 
@@ -198,7 +186,6 @@ const getProducts = (start, count) => {
 }
 
 const productData = {
-    getAllProducts,
     getProducts,
     GetProductById
 }

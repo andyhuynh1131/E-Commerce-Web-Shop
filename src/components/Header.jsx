@@ -1,10 +1,14 @@
-import React, { useEffect, useRef, useContext } from 'react'
+import React, { useEffect, useRef, useContext, useState } from 'react'
 
 import { Link, useLocation } from 'react-router-dom'
 
 import logo from '../assets/images/Logo-2.png'
 
-import { AppContext } from './AppProvider'
+import { AppContext } from '../ConText/AppProvider'
+import { AuthContext } from '../ConText/AuthProvider'
+import { auth } from './FireBase/Config'
+
+
 
 
 const mainNav = [
@@ -34,9 +38,12 @@ const Header = () => {
 
     const ActiveNav = mainNav.findIndex(item => item.path === pathname)
 
-    const headerRef = useRef(null)
+    const headerRef = useRef(0)
 
+    const [displayUser, setDisplayUser] = useState(false)
 
+    const { user, setUser } = useContext(AuthContext)
+    console.log(user);
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -48,7 +55,7 @@ const Header = () => {
         })
 
         return () => {
-            window.removeEventListener('scroll')
+            window.removeEventListener('scroll', null)
         }
     }, [])
 
@@ -57,6 +64,13 @@ const Header = () => {
     const menuRef = useRef(null)
 
     const menutoggle = () => menuRef.current.classList.toggle('active')
+
+    const handleLogout = () => {
+        setUser(null)
+        setDisplayUser(false)
+        auth.signOut()
+
+    }
 
     return (
         <div className='header' ref={headerRef} >
@@ -109,7 +123,21 @@ const Header = () => {
 
                         </div>
                         <div className="header__menu__item header__menu__right__item">
-                            <i class='bx bx-user' ></i>
+                            {
+                                user ?
+                                    <div>
+                                        <img src={user.photoURL} alt='' onClick={() => (setDisplayUser(!displayUser))} />
+                                        {
+                                            displayUser ? <div className="dropdown" onClick={handleLogout}>
+                                                <span>Đăng xuất</span>
+                                            </div> : ''
+                                        }
+                                    </div>
+                                    : <Link to="/dang-nhap">
+                                        <i class='bx bx-user' ></i>
+                                    </Link>
+                            }
+
                         </div>
                     </div>
                 </div>

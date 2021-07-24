@@ -1,27 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import ConvertToPrice from '../utils/ConverttoPrice'
 import { useContext } from 'react'
-import { AppContext } from './AppProvider'
+import { AppContext } from '../ConText/AppProvider'
+import PropTypes from 'prop-types'
 
 
 
 
-ShoppingCartItem.propTypes = {
-
-    id: PropTypes.number.isRequired,
-    image01: PropTypes.string.isRequired,
-    image02: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    slug: PropTypes.string.isRequired,
-    size: PropTypes.array.isRequired,
-    colors: PropTypes.array.isRequired,
-    categorySlug: PropTypes.string.isRequired,
-    qty: PropTypes.number.isRequired
-
-
-}
 
 
 
@@ -29,12 +14,25 @@ ShoppingCartItem.propTypes = {
 function ShoppingCartItem(props) {
     const { listProductCart, setListProductCart } = useContext(AppContext)
 
-
-
-
-
+    window.scrollTo(0, 0)
 
     const handleChange = (e) => {
+        const value = Number(e.target.value)
+
+        console.log(value);
+        const exist = listProductCart.find(x => x.id === props.id)
+        if (value > 0) {
+            if (exist) {
+                setListProductCart(
+                    listProductCart.map(x => x.id === props.id ? { ...exist, qty: value } : x)
+                )
+            } else {
+                return;
+            }
+        } else {
+            return;
+        }
+
 
 
 
@@ -78,6 +76,7 @@ function ShoppingCartItem(props) {
     }
 
 
+    const newlistImg = [...props.images]
 
 
 
@@ -87,8 +86,15 @@ function ShoppingCartItem(props) {
             <div style={{ display: 'flex', flexGrow: 1, justifyContent: 'space-around' }}>
                 <div className="shopping-card__item__product">
                     <div className="shopping-card__image">
-                        <img src={props.image01} alt="" />
-                        <img src={props.image02} alt="" />
+                        {
+                            newlistImg.map((x, i) => (
+                                <img key={i} src={x} alt="" />
+                            )
+
+                            )
+                        }
+
+
                     </div>
 
                     <h3 className="shopping-card-title">{props.title}</h3>
@@ -101,7 +107,7 @@ function ShoppingCartItem(props) {
                 </div>
                 <div className="shopping-card-number">
                     <i class='bx bxs-minus-square' onClick={handleClickMinus} ></i>
-                    <input type='text' value={props.qty} style={{ width: '15%', textAlign: 'center' }} />
+                    <input type='text' value={props.qty} onChange={handleChange} style={{ width: '25%', textAlign: 'center' }} />
                     <i class='bx bxs-plus-square' onClick={handleClickPlus} ></i>
                 </div>
 
@@ -116,6 +122,17 @@ function ShoppingCartItem(props) {
     )
 }
 
+ShoppingCartItem.propTypes = {
+
+    id: PropTypes.string.isRequired,
+    images: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    slug: PropTypes.string.isRequired,
+    qty: PropTypes.number.isRequired
+
+
+}
 
 
 export default ShoppingCartItem

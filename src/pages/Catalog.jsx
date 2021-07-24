@@ -23,8 +23,7 @@ const Catalog = () => {
                             productData.getProducts(0, 12).map((item, index) => (
                                 <ProductCard
                                     key={index}
-                                    image01={item.image01}
-                                    image02={item.image02}
+                                    images={item.images}
                                     title={item.title}
                                     price={item.price}
                                     slug={item.slug}

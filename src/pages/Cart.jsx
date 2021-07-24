@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import Hetmet from '../components/Hetmet'
 import ShoppingCartItem from '../components/ShoppingCartItem'
-import { AppContext } from '../components/AppProvider'
+import { AppContext } from '../ConText/AppProvider'
 import Button from '../components/Button'
 
 
@@ -13,8 +13,6 @@ const Cart = () => {
     const totalPrice = listProductCart.reduce((acc, curr) => acc + curr.price * curr.qty, 0)
 
     const totalProducts = listProductCart.reduce((acc, curr) => acc + curr.qty, 0)
-
-    console.log(listProductCart);
     return (
         <Hetmet title="Giỏ hàng">
 
@@ -33,8 +31,7 @@ const Cart = () => {
                             <ShoppingCartItem
                                 key={index}
                                 id={item.id}
-                                image01={item.image01}
-                                image02={item.image02}
+                                images={item.images}
                                 title={item.title}
                                 price={item.price}
                                 slug={item.slug}

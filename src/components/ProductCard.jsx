@@ -1,17 +1,14 @@
 import React, { useContext } from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import Button from './Button'
 import ConvertToPrice from '../utils/ConverttoPrice'
-import { AppContext } from './AppProvider'
+import { AppContext } from '../ConText/AppProvider'
 
 
 
 const ProductCard = props => {
 
     const { listProductCart, setListProductCart } = useContext(AppContext)
-
-
 
     const handleClick = () => {
 
@@ -29,12 +26,19 @@ const ProductCard = props => {
 
     }
 
+    const CutlistImg = [...props.images]
+    CutlistImg.splice(2, CutlistImg.length - 2)
+
     return (
         <div className="product-card">
-            <Link to={`/catelog/${props.slug}`}>
+            <Link to={`/catalog/${props.slug}`}>
                 <div className="product-card__image">
-                    <img src={props.image01} alt="" />
-                    <img src={props.image02} alt="" />
+                    {
+                        CutlistImg.map((x, i) => (
+                            <img key={i} src={x} alt="" />
+                        ))
+                    }
+
                 </div>
                 <h3 className="product-card__name">{props.title}</h3>
                 <div className="product-card__price">
@@ -63,16 +67,6 @@ const ProductCard = props => {
     )
 }
 
-ProductCard.propTypes = {
 
-    id: PropTypes.string.isRequired,
-    image01: PropTypes.string.isRequired,
-    image02: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    slug: PropTypes.string.isRequired,
-
-
-}
 
 export default ProductCard

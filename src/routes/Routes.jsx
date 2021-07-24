@@ -4,10 +4,14 @@ import Home from '../pages/Home'
 import Catalog from '../pages/Catalog'
 import Cart from '../pages/Cart'
 import Product from '../pages/Product'
+import Signup from '../pages/Signup'
+import SignIn from '../pages/SignIn'
 
 const Routes = () => {
     return (
         <Switch>
+            <Route path="/dang-ky" exact component={SignIn} />
+            <Route path="/dang-nhap" exact component={Signup} />
             <Route path="/" exact component={Home} />
             <Route path="/catalog/:slug" exact component={Product} />
             <Route path="/catalog" exact component={Catalog} />

@@ -71,8 +71,7 @@ const Home = () => {
                                 <ProductCard
                                     key={index}
                                     id={item.id}
-                                    image01={item.image01}
-                                    image02={item.image02}
+                                    images={item.images}
                                     title={item.title}
                                     price={item.price}
                                     slug={item.slug}
@@ -102,8 +101,7 @@ const Home = () => {
                                 <ProductCard
                                     key={index}
                                     id={item.id}
-                                    image01={item.image01}
-                                    image02={item.image02}
+                                    images={item.images}
                                     title={item.title}
                                     price={item.price}
                                     slug={item.slug}
@@ -142,8 +140,7 @@ const Home = () => {
                                 <ProductCard
                                     key={index}
                                     id={item.id}
-                                    image01={item.image01}
-                                    image02={item.image02}
+                                    images={item.images}
                                     title={item.title}
                                     price={item.price}
                                     slug={item.slug}

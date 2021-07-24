@@ -81,6 +81,26 @@
                 position: relative;
                 @include flex(center, center);
 
+                img {
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+                .dropdown {
+                    width: 100px;
+                    height: 50px;
+                    position: absolute;
+                    transform: translateY(50%) translateX(-50%);
+
+                    top: 20px;
+                    font-size: 20px;
+                    border-radius: 5px;
+                    box-shadow: 5px 10px 18px #888888;
+
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
                 .group-shoppingcart span {
                     width: 2rem;
                     height: 2rem;
